@@ -29,6 +29,9 @@ cc.Class({
             this.onPicked()
             return
         }
+        let opacityRatio = 1 - this.game.timer / this.game.startDuration
+        let minOpacity = 50
+        this.node.opacity = minOpacity + Math.floor(opacityRatio * (255 - minOpacity))
     },
     start () {
 

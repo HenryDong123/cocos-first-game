@@ -34,7 +34,10 @@ cc.Class({
     onLoad () {
         this.score = 0
         this.groudY = this.groud.y + this.groud.height/2
+        this.timer = 0
+        this.startDuration = 0
         this.spawnNewStar()
+        this.score = 0
     },
     spawnNewStar(){
         let newStar = cc.instantiate(this.starPrefab)
@@ -42,7 +45,9 @@ cc.Class({
         this.node.addChild(newStar)
 
         newStar.setPosition(this.getNewStarPosition())
-    },
+        this.startDuration = this.minStartDuration + Math.random() * (this.maxStartDuration - this.minStartDuration)
+        this.timer = 0
+0    },
     getNewStarPosition(){
         let randX = 0
 
@@ -61,5 +66,15 @@ cc.Class({
         // 更新 scoreDisplay Label 的文字
         this.scoreDisplay.string = 'Score: ' + this.score;
     },
-    // update (dt) {},
+    gameOver(){
+      this.player.stopAllActions()
+      cc.director.loadScene('game')
+    },
+    update (dt) {
+        if (this.timer > this.startDuration){
+            this.gameOver()
+            return
+        }
+        this.timer += dt
+    },
 });
