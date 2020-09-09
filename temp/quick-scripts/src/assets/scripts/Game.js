@@ -30,6 +30,10 @@ cc.Class({
     scoreDisplay: {
       "default": null,
       type: cc.Label
+    },
+    scoreAudio: {
+      "default": null,
+      type: cc.AudioClip
     }
   },
   // LIFE-CYCLE CALLBACKS:
@@ -62,10 +66,10 @@ cc.Class({
     this.score += 1; // 更新 scoreDisplay Label 的文字
 
     this.scoreDisplay.string = 'Score: ' + this.score;
+    cc.audioEngine.playEffect(this.scoreAudio, false);
   },
   gameOver: function gameOver() {
-    this.player.stopAllActions();
-    cc.director.loadScene('game');
+    this.player.stopAllActions(); // cc.director.loadScene('game')
   },
   update: function update(dt) {
     if (this.timer > this.startDuration) {

@@ -574,24 +574,24 @@
     "meta": 1599560177075,
     "relativePath": "scripts"
   },
-  "d04f11ab-c8e6-4fef-b13d-229654d872a0": {
-    "asset": 1599562214887,
-    "meta": 1599562215447,
-    "relativePath": "scripts/Player.js"
-  },
   "80c5adb6-6f36-4730-8238-d9b209096b65": {
     "asset": 1599562351815,
     "meta": 1599562351816,
     "relativePath": "star.prefab"
   },
-  "cda7d190-87b4-4712-8c1a-cca2eaaab542": {
-    "asset": 1599621597852,
-    "meta": 1599621741061,
-    "relativePath": "scripts/Game.js"
-  },
   "e340b620-9aa9-4934-be65-31668b7207d2": {
     "asset": 1599621740876,
     "meta": 1599621741088,
     "relativePath": "scripts/Star.js"
+  },
+  "d04f11ab-c8e6-4fef-b13d-229654d872a0": {
+    "asset": 1599622737441,
+    "meta": 1599622744152,
+    "relativePath": "scripts/Player.js"
+  },
+  "cda7d190-87b4-4712-8c1a-cca2eaaab542": {
+    "asset": 1599622804557,
+    "meta": 1599622805990,
+    "relativePath": "scripts/Game.js"
   }
 }

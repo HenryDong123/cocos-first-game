@@ -26,6 +26,10 @@ cc.Class({
         scoreDisplay: {
             default: null,
             type: cc.Label
+        },
+        scoreAudio: {
+            default: null,
+            type: cc.AudioClip
         }
     },
 
@@ -64,11 +68,13 @@ cc.Class({
     gainScore () {
         this.score += 1;
         // 更新 scoreDisplay Label 的文字
-        this.scoreDisplay.string = 'Score: ' + this.score;
+        this.scoreDisplay.string = 'Score: ' + this.score
+
+        cc.audioEngine.playEffect(this.scoreAudio, false)
     },
     gameOver(){
       this.player.stopAllActions()
-      cc.director.loadScene('game')
+      // cc.director.loadScene('game')
     },
     update (dt) {
         if (this.timer > this.startDuration){

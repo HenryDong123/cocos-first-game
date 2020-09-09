@@ -13,15 +13,22 @@ cc.Class({
         jumpHeight: 0,
         jumpDuration: 0,
         maxMoveSpeed: 0,
-        accel: 0
+        accel: 0,
+        jumpAudio: {
+            default: null,
+            type: cc.AudioClip
+        }
     },
 
     setJumpAction(){
         let jumpUp = cc.moveBy(this.jumpDuration, cc.v2(0,this.jumpHeight)).easing(cc.easeCubicActionOut())
 
         let jumpDown = cc.moveBy(this.jumpDuration, cc.v2(0, -this.jumpHeight)).easing(cc.easeCubicActionIn())
-
-        return cc.repeatForever(cc.sequence(jumpUp, jumpDown))
+        let cb = cc.callFunc(this.playJumpSound, this)
+        return cc.repeatForever(cc.sequence(jumpUp, jumpDown, cb))
+    },
+    playJumpSound(){
+      cc.audioEngine.playEffect(this.jumpAudio,false)
     },
     // LIFE-CYCLE CALLBACKS:
     onKeyDown (event) {
